@@ -1,4 +1,32 @@
-#C:\Users\franc\Desktop\Data_science\Algorithmic_Methods_of_Data_Mining\ADM_hw3
+############
+# This file is the file with the code to run all the three Search Engines.
+# It is divided in 5 parts:
+#   Search engine 1 (conjunctive queries): 
+#       Each of the returned documents should contain all the words in the query. 
+#       The final output of the query must return, if present, Title, Intro and URL
+#        
+#   Search engine 2 (Conjunctive query & Ranking score): 
+#       Once we get the right set of documents, we want to know which are the most 
+#       similar according to the query. For this purpose, as scoring function we will 
+#       use the Cosine Similarity with respect to the tf-idf representations of the 
+#       documents.
+#   
+#   Search engine 3 (our score):
+#       This score gives the user the possibility to search for a movie both on the basis
+#       of the words but also on the basis of the director and the composer. 
+#       Each match in these categories increases that movie's score by 25%, is possible 
+#       choose the number of results that we want see. For the sorting algorithm we are 
+#       going to use the heapsort
+#   
+#   Importing dictionaries:
+#       save in memory the inverted index, the vocabulary ant the match between doc_id 
+#       and URL
+# 
+#   Interactive part:
+#       It is a piece of code that allow the user to choose the type of search engine, the number of 
+#       results and insert all the words.
+############
+
 
 import numpy as np
 from index_utils import FILTER
@@ -8,7 +36,6 @@ import pandas as pd
 import os.path
 import numpy as np
 from collections import Counter
-
 
 ######################################## Search engine 1
 

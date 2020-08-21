@@ -1,9 +1,12 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Jan 13 13:37:09 2020
-
-@author: franc
-"""
+############
+# This is the part for the theorical question:
+# You are given a string, s. Let's define a subsequence as the subset of characters 
+# that respects the order we find them in s. For instance, a subsequence of "DATAMINING" 
+# is "TMNN". Your goal is to define and implement an algorithm that finds the length of 
+# the longest possible subsequence that can be read in the same way forward and backwards. 
+# For example, given the string "DATAMININGSAPIENZA" the answer should be 7 
+# (dAtamININgsapIenzA)
+############
 
 s = "DATAMININGSAPIENZA" # defined Sequence
 nalgo4 = len(s)
