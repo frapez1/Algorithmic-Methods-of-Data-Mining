@@ -6,7 +6,20 @@ from collector_utils import PRINT
 import numpy as np
 import pickle
 
-# where we want save all the html files
+############
+# Inside the repository there are in the folder `data` pagese with 10000 `urls` each.
+# The main of this file is to read all the `urls` and using bs4, from BeautifulSoup,
+# save the whole page in a `html` format.
+# 
+# Is possible that some errors accurs during this process:
+#   error 404 page not found:
+#       In this case the page is dropped 
+#   error 429 too many access: 
+#       In this case there is a delay of 20 minutes   
+#       (This error is avoided with the random delay between 1 and 5 seconds) 
+############
+
+# this is the pat for the general folder that contain everything
 save_path = 'C:/Users/franc/Desktop/Data_science/Algorithmic_Methods_of_Data_Mining/ADM_hw3/'
 
 
@@ -16,7 +29,7 @@ counter = 0
 # a list of all the empty pages
 empty_file = []
 
-# a dictionary with as key the Id of the document and walue his url
+# a dictionary with as key the Id of the document and value his url
 Doc_Id_url = {}
 
 # A loop for each list of link
@@ -45,9 +58,9 @@ for i in range(1,4):
             response = urllib.request.urlopen(wiki_links[j].get('href'))
             webContent = response.read().decode(response.headers.get_content_charset())
             
-            # this function save this page in an .html file inside the folder at the address save_path 
+            # this function save this page in an .html file inside the folder at the address save_path+'HTML' 
             PRINT(save_path +'HTML', counter, webContent)
-            soup_i = BeautifulSoup(webContent, 'html5lib')
+            # soup_i = BeautifulSoup(webContent, 'html5lib')
             
         # lets see the exceptions
         except urllib.error.HTTPError as e:
@@ -64,12 +77,10 @@ for i in range(1,4):
               
         
         counter += 1
-        # andom time sleep between 1 and 5 sec
+        # random time sleep between 1 and 5 sec
         time.sleep(np.random.randint(1,6))
         
 
-file = 'C:/Users/franc/Desktop/Data_science/Algorithmic_Methods_of_Data_Mining/ADM_hw3/'
-
 # save the dictionary as pkl
-with open(file+'Doc_Id_url.pkl', 'wb') as fp:
+with open(save_path+'Doc_Id_url.pkl', 'wb') as fp:
     pickle.dump(Doc_Id_url, fp, protocol = pickle.HIGHEST_PROTOCOL)
