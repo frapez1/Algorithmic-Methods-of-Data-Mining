@@ -16,7 +16,7 @@ import pickle
 #       In this case the page is dropped 
 #   error 429 too many access: 
 #       In this case there is a delay of 20 minutes   
-#       (This error is avoided with the random delay between 1 and 5 seconds) 
+#       (This error is avoided with the random delay between 1 and 5) 
 ############
 
 # this is the pat for the general folder that contain everything
