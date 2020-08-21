@@ -1,3 +1,20 @@
+############
+# This python code allow to process both intro and plot in order to build the inverted index,
+# the words->numbers map and a dictionary with the size of each document.  
+# 
+# Each document is preprocess in order to:
+#   - Removing stopwords (e.g.  and, or, the.....)
+#   - Removing punctuation
+#   - Stemming (i.e. all these words 'Playing','Plays','Played' became 'Play')
+#    
+# After the this cleaning process is possible create the directed index,
+# a dictionary of the same form of the inverted index but with the frequency of the    
+# words indide the document insted of tf-idf.
+# 
+# At the end we can calculate the tf-idf and create the inverted index taking care to
+# map the words into numbers, to save memory.
+############
+
 
 import os.path
 from index_utils import FILTER, DOC_DOCLEN_FREQ_DIC, INVERTED_INDEX_DIC

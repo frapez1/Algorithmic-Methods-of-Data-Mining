@@ -1,3 +1,7 @@
+############
+# This python code contains all the unction for index.py
+############
+
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk.tokenize import RegexpTokenizer
@@ -6,6 +10,13 @@ import numpy as np
 
 # generate the stop-words
 stopWords = set(stopwords.words('english'))
+
+
+############
+# This function allow to clean the text removing, first of all, the punctuation and 
+# isolating the single words, after removing the stopwords previously generated and
+# at the end stemming
+############
 
 # this function work for a generic string, such as a document or the query
 def FILTER(string):
@@ -25,8 +36,13 @@ def FILTER(string):
     ListOfWords = [porter.stem(word) for word in wordsFiltered]
     return ListOfWords
 
-# we use this function to create the direct index
-# is a dictionry with as key the word and as value another dictionary with key the number of the document and as value the frequency of the word in this document
+
+############
+# We use this function to create the direct index.
+# It is a dictionry with as key the word and as value another dictionary with key 
+# the number of the document and as value the frequency of the word in this document
+############
+
 def DOC_DOCLEN_FREQ_DIC(Document, direct_index, i):
     Document = Counter(Document)
     for word, frequence in Document.items():
@@ -36,7 +52,9 @@ def DOC_DOCLEN_FREQ_DIC(Document, direct_index, i):
             direct_index[word][i] = frequence
     return 
 
-# we use this function to create the inverted index 
+############
+# we use this function to create the inverted index and compute the tf-idf 
+############
 def INVERTED_INDEX_DIC(direct_index, Inverted_index, Length_Doc, Number_of_documents):
     for key, Doc_Freq in direct_index.items():
         Inverted_index[key] = {}
