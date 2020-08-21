@@ -1,5 +1,15 @@
 
+############
+# This file contains all the functions used in parse.py
+############
 
+
+
+############
+# This function take as imput a <h2> and an empty list.
+# The plot is made up of all the paragraphs between the first twu <h2>; of course 
+# is possible that after the plot there is nothing so we have to make an exception 
+############
 
 def PLOT(tag_i, plot):
     # from the <h2> until there is a new <h2> we take all the plots
@@ -14,6 +24,13 @@ def PLOT(tag_i, plot):
         # it's for pages that have nothing after the polt
         pass
     return plot
+
+
+############
+# The introduction is nothing more than all the paragraphs before the plot, so
+# we compare all the paragraph with the first p of the plot till there is a match
+############
+
 
 def INTRO(all_p_i,plot,intro):
     # if plot in empty we try to save the first paragraph, otherwise we save 'NA'
@@ -31,17 +48,24 @@ def INTRO(all_p_i,plot,intro):
                 intro.append(par.text.replace('\n', ''))
     return intro
 
+############
+# This function read all the infos inside the infobox and return a dictionary
+############
 
 def DICT_INFOBOX(soup_i,result):
     # we read the infobox and make a dictionary
     table = soup_i.find('table', class_='infobox vevent')
     for tr in table.find_all('tr'):
         if tr.find('th'):
-            result[tr.find('th').text] = tr.get_text(strip=True, separator=" ")[len(tr.find('th').text):]#[m.text for m in tr.find_all('td')]#[len(tr.find('th')):]
+            result[tr.find('th').text] = tr.get_text(strip=True, separator=" ")[len(tr.find('th').text):]
         else:
             pass
     return result
 
+
+############
+# If there isn't an infobox we create an empty one
+############
 def EMPTY_INFOBOX():
     # if there is not the infobox we save a dictionary with only 'NA' for each key
     a = {'Directed by': 'NA',

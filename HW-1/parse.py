@@ -1,9 +1,19 @@
-
 from bs4 import BeautifulSoup
 import csv
 from parse_utils import PLOT, INTRO, DICT_INFOBOX, EMPTY_INFOBOX
 import os.path
 
+
+############
+# This python code contains the lines of code needed to parse the entire 
+# collection of html pages and save those in tsv files. 
+# Using bs4, from BeautifulSoup, is possible read process the html file 
+# and estract:
+#   Title, Intro, Plot, Film_name, Director, Producer, Writer, Starring, 
+#   Music, Release date, Runtime, Country, Language and Budget
+#
+# The output of each html is a tsv file with all the infos   
+############
 
 
 # read the html files from the HTML folder and save the tvs files inside the folder TSV
@@ -11,7 +21,7 @@ input_path = 'C:/Users/franc/Desktop/Data_science/Algorithmic_Methods_of_Data_Mi
 output_path = 'C:/Users/franc/Desktop/Data_science/Algorithmic_Methods_of_Data_Mining/ADM_hw3/TSV'
 
 
-# how wiki call the plot section
+# these are all the plot section names. We have to check all of them in each html
 possible_plots = ['#Plot','#Plot_summary', '#Premise']
      
 # how save informatrions into the tsv files                  
@@ -43,26 +53,26 @@ while i < N:
        
         
         # for each possible name of the plot we do the follow loop
-        no_plot = 0
+        no_plot = 1
         for k in possible_plots:
             try:
                 # we are going to select the <h2> associated to the k-th name of the plot
                 # if we find it we create the plot with the function PLOT inside collectop_utils.py
                 tag_i = soup_i.select_one(k).find_parent('h2').find_next_sibling()
                 plot = PLOT(tag_i, [])
-                no_plot = 1
+                no_plot = 0
                 break                         
             except:
                 pass
         # if there is no plot we write 'NA'
-        if no_plot == 0:
+        if no_plot == 1:
             plot = 'NA'
         # reading the intro: everything before the plot
         intro = INTRO(all_p_i,plot,[])    
         
-        # try to read the infobox
+        # try to read the infobox that contain the other infos
         try: 
-            # if we find it whe read it and save it as a dictionary into the result
+            # if we find it we read it and save it as a dictionary into the result
             table = soup_i.find('table', class_='infobox vevent')
             result = DICT_INFOBOX(soup_i,{})
         except:
@@ -74,7 +84,9 @@ while i < N:
         
         # saving the infobox
         for k in range(10):
+            # Save what is inside the infobox at a kay Name[k] else save NA
             InfoFilm[k+4] = result.get(Name[k], 'NA')
+        
         # saving the title
         InfoFilm[0] = soup_i.title.text[:-12]
         
