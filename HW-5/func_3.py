@@ -1,3 +1,14 @@
+############
+# This file contain the code for the first function "Shortest Ordered Route"
+# 
+# It takes in input:
+#   - a node H
+#   - A sequence of nodes p = [p_1, ..., p_n]
+#   - One of the following distances function: t(x,y), d(x,y) or network distance 
+#     (i.e. consider all edges to have weight equal to 1).
+# Implement an algorithm that returns the shortest walk that goes from H to p_n, and 
+# that visits in order the nodes in p.
+############
 
 def f3(graph, startnode, endnode):
     # Shortest paths from startnode
