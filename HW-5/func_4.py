@@ -1,4 +1,13 @@
-
+############
+# This file contain the code for the first function "Shortest Route"
+#It takes in input:
+#   - a node H
+#   - A set of nodes p = {p_1, ..., p_n}
+#   - One of the following distances function: t(x,y), d(x,y) or network distance 
+#     (i.e. consider all edges to have weight equal to 1).
+# Implement an algorithm that returns the shortest walk that goes from H to p_n, and 
+# that visits the nodes in p.
+############
 
 
 import numpy as np
