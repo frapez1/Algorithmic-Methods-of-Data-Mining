@@ -72,7 +72,7 @@ def coordinates(coord):
 # this is the function to find the heuristic solution for this problem
 # take as argument a fully connecteg graph where the weights are the eucledian distances
 # between the nodes
-# to find the best path we use the a kind of Nearest Neighbour Algorithm    
+# to find the best path we use a kind of Nearest Neighbour Algorithm    
 def shortest_path_l_r(dcf_graph, start, end):    
     visited = [start, end]
     tot_dist = 0
@@ -172,7 +172,7 @@ def visualization_4(visited, Nodes, coord):
     webbrowser.open(path + 'map.html',new = 2)
     
     
-    # We need to removit because otherwise the bulitin map() function doesn't work well
+    # We need to removit because otherwise the bulit in map() function doesn't work well
     del folium
  
 # the visualization part used for func_1
