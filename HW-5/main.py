@@ -1,4 +1,7 @@
-
+############
+# This is the Python script which executes the whole system. It has to ask some inputs 
+# and provide outputs.
+############
 import numpy as np
 import networkx as nx
 import gzip
