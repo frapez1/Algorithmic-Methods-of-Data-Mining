@@ -1,6 +1,7 @@
 ############
 # This is the Python script which executes the whole system. It has to ask some inputs 
 # and provide outputs.
+# There is, first of all the possibility to choose the type of distance
 ############
 import numpy as np
 import networkx as nx
