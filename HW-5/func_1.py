@@ -1,3 +1,15 @@
+############
+# This file contain the code for the first function "Find the Neighbours!"
+# It takes in input:
+#   - a node v
+#   - One of the following distances function: t(x,y), d(x,y) or network distance 
+#     (i.e. consider all edges to have weight equal to 1).
+#   - a distance threshold d
+# 
+# Implement an algorithm (using proper data structures) that returns the set of nodes 
+# at distance <= d from v, corresponding to v’s neighborhood.
+###########
+
 import copy
 
 
