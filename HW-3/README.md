@@ -1,4 +1,4 @@
-# HW-1
+# HW-3
 
 **Goal of the homework**: *Build a search engine over a list of movies that have a dedicated page on Wikipedia.*
 
@@ -234,3 +234,7 @@ This is the part for the theorical question
 ## main.ipynb
 
 A jupiter notebook with all the code
+
+# HW TEXT
+
+Is possible find the hw text [here](https://github.com/CriMenghini/ADM/tree/master/2019/Homework_3)
