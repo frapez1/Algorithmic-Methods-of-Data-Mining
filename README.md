@@ -13,7 +13,15 @@ Keywords:
   * [Tf-idf](https://it.wikipedia.org/wiki/Tf-idf)
   * [Inverted index](https://en.wikipedia.org/wiki/Inverted_index)
 
+# [HW-4](https://github.com/frapez1/Algorithmic-Methods-of-Data-Mining/tree/master/HW-4)
 
+The goal of this HW is implement hash functions with a structure called Bloom Filter, the alphabetical sort and the k-means clustering algorithm.
+
+Keywords:
+  * Hash functions
+  * [***Bloom Filter***](https://en.wikipedia.org/wiki/Bloom_filter)
+  * Alphabetical sort
+  * K-means clustering algorithm
 
 # [HW-5](https://github.com/frapez1/Algorithmic-Methods-of-Data-Mining/tree/master/HW-5)
 
